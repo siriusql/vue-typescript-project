@@ -7,6 +7,6 @@ import { Options, Vue } from 'vue-class-component';
     components:{}
 })
 
-export default class Main extends Vue {
-    private msg: string = 'hello'
+export default class SidePage extends Vue {
+    
 }
