@@ -1,5 +1,6 @@
 import ChildPage from '@/modules/child-page/child-page.vue';
 import SidePage from '@/modules/side-page/side-page.vue';
+import axios from 'axios';
 import { Options, Vue } from 'vue-class-component';
 
 @Options({
@@ -14,6 +15,11 @@ import { Options, Vue } from 'vue-class-component';
         getTestMethod(){
             console.log("getTestMethod 호출 테스트");
             this.$refs.ChildPage.getChildMethod();
+        },
+        getMenuList(){
+            axios.get('https://jsonplaceholder.typicode.com/posts').then(res => {
+                console.log(res.data);
+            })
         }
     }
 })
@@ -21,6 +27,7 @@ import { Options, Vue } from 'vue-class-component';
 export default class MainPage extends Vue {
     private msg: string = 'hello';
     public list = MENU;
+    buttons = ['버튼1','버튼2','버튼3'];
 }
 
 export const MENU = [    
